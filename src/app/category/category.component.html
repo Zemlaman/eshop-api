@@ -1,0 +1,13 @@
+<div class="container">
+<h1>{{name}}</h1>
+<p>{{text}}</p>
+  <div class="card" style="width: 18rem;" *ngFor="let product of productArr">
+    <div class="card-body">
+      <h5 class="card-title">{{product.title}}</h5>
+      <p class="card-text">{{product.price / 100}}</p>
+      <img [src]="'http://kodytek.cz:8080/rest-api/' + product.images[0].miniaturePath">
+    </div>
+  </div>
+</div>
+
+

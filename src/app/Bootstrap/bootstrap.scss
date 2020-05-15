@@ -1,0 +1,16 @@
+$theme-colors:(
+  'primary': rgb(116, 116, 116),
+  'secondary' : rgb(255, 145, 0),
+  'danger': rgb(255, 0, 0),
+  'dark': black,
+  'lit': rgb(255, 0, 200),
+  'fury': rgb(0, 255, 255)
+);
+$font-family-sans-serif: rgb(0, 0, 0);
+$spinner-border-width: 3px;
+$border-radius: 5px;
+$card-bg: rgb(255, 255, 255);
+$body-bg: #ffffff;
+
+
+@import "node_modules/bootstrap/scss/bootstrap";
