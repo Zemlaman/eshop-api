@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {CategoriesService} from '../services/categories.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Category} from '../models/Category.model';
 import {CategoryPage} from '../models/CategoryPage.model';
 import {Product} from '../models/Product.model';
 import {ProductsService} from '../services/products.service';
 import {Images} from '../models/Images.model';
+import {Ratings} from "../models/Ratings.model";
 
 @Component({
   selector: 'app-category',
@@ -19,9 +20,18 @@ export class CategoryComponent implements OnInit {
   public text: string;
   public product: Product;
   public productArr: Product[];
-  public images: Images[];
+  public ratingOfProduct: number[];
+  public avgRatingsArr: number[];
+  public sum: number;
+  public avgRatingsNumber: Ratings[];
+  public ratingNumber: number;
 
-  constructor(private http: HttpClient, private category: CategoriesService, private activatedRoute: ActivatedRoute, private products: ProductsService) {
+
+  constructor(private http: HttpClient,
+              private category: CategoriesService,
+              private activatedRoute: ActivatedRoute,
+              private products: ProductsService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -30,12 +40,16 @@ export class CategoryComponent implements OnInit {
         console.log(data);
         this.name = data.category.name;
         this.text = data.category.description;
-        this.productArr = data['products'];
-      });
-      this.products.getImage().subscribe((data: Images[]) => {
-        console.log(data);
+        this.productArr = data.products;
+
+        console.log(this.productArr);
+
       });
     });
+  }
+
+  getProduct(id: number) {
+    this.router.navigate(['/product'], {queryParams: {id}});
   }
 
 }
