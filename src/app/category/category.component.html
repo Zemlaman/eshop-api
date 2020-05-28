@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="productArray">
 <h1>{{name}}</h1>
 <p>{{text}}</p>
   <div class="d-flex flex-row flex-wrap container">
@@ -12,10 +12,12 @@
   </div>
   </div>
   <div class=" container" *ngIf="productArray.length === 0">
-    <h3>Zatím není zavedeno</h3>
+    <h3>Zatím není zavedeno, ale již pilně pracujeme na naskladnění produktů tohoto typu.</h3>
   </div>
+  <ul class="pagination pg-blue">
+    <li class="page-item text-dark" *ngFor="let i of pageCount"><a class="page-link" (click)="loadPage(categoryId, i)">{{i + 1}}</a></li>
+  </ul>
 </div>
-
 
 
 
