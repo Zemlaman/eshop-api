@@ -17,9 +17,9 @@ export class ProductComponent implements OnInit {
   public title: string;
   public product: Product;
   public ratings: Ratings[];
-  public avgRatingsArr: number[];
-  public sum: number;
-  public avgRatingsNumber: number;
+  public ratingsArray: number[];
+  public celk: number;
+  public ratingsNumber: number;
 
 
   constructor(private activatedRoute: ActivatedRoute, private products: ProductsService) { }
@@ -30,9 +30,9 @@ export class ProductComponent implements OnInit {
         console.log(data);
         this.product = data;
         this.ratings = data.ratings;
-        this.avgRatingsArr = this.ratings.map(l => l.percent);
-        this.sum = this.avgRatingsArr.reduce((a, b) => a + b, 0);
-        this.avgRatingsNumber = this.sum / this.ratings.length;
+        this.ratingsArray = this.ratings.map(l => l.percent);
+        this.celk = this.ratingsArray.reduce((a, b) => a + b, 0);
+        this.ratingsNumber = this.celk / this.ratings.length;
       });
     });
   }

@@ -3,3 +3,25 @@
   text-align: center;
   justify-content: space-between;
 }
+
+.navbar-brand {
+  font-size: 0.8cm;
+}
+
+.nav-item {
+  font-size: 0.6cm;
+  padding-right: 2cm;
+}
+
+.list-inline-item {
+  margin-block: 1cm;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.img {
+  border-radius: 8px;
+}

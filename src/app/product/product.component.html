@@ -1,7 +1,7 @@
 <div class="container" *ngIf="product">
     <h1>{{product.title}}</h1>
     <p>{{product.description}}</p>
-    <p *ngIf="ratings.length"><strong>Hodnocení produktu: </strong>{{avgRatingsNumber}}%</p>
+    <p *ngIf="ratings.length"><strong>Hodnocení produktu: </strong>{{ratingsNumber}}%</p>
     <p *ngIf="ratings.length == 0"><strong>Hodnocení produktu: </strong> žádné hodnocení</p>
     <p><strong>Kusů na skladě: </strong>{{product.unitsOnStock}}</p>
     <img class=" image card-img-top" [src]="'http://kodytek.cz:8080/rest-api/' + product.images[0].miniaturePath" alt="Card image cap">

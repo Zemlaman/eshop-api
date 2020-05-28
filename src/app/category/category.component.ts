@@ -19,20 +19,15 @@ export class CategoryComponent implements OnInit {
   public name: string;
   public text: string;
   public product: Product;
-  public productArr: Product[];
+  public productArray: Product[];
   public ratingOfProduct: number[];
-  public avgRatingsArr: number[];
+  public ratingsArray: number[];
   public sum: number;
-  public avgRatingsNumber: Ratings[];
-  public ratingNumber: number;
+  public ratingsNumber: Ratings[];
+  public ratings: Ratings[];
 
 
-  constructor(private http: HttpClient,
-              private category: CategoriesService,
-              private activatedRoute: ActivatedRoute,
-              private products: ProductsService,
-              private router: Router) {
-  }
+  constructor(private http: HttpClient, private category: CategoriesService, private activatedRoute: ActivatedRoute, private products: ProductsService, private router: Router) { }
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(i => {
@@ -40,9 +35,9 @@ export class CategoryComponent implements OnInit {
         console.log(data);
         this.name = data.category.name;
         this.text = data.category.description;
-        this.productArr = data.products;
+        this.productArray = data.products;
 
-        console.log(this.productArr);
+        console.log(this.productArray);
 
       });
     });
