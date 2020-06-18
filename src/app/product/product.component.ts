@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CategoryPage} from "../models/CategoryPage.model";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, RouteReuseStrategy, Router} from "@angular/router";
 import {ProductsService} from "../services/products.service";
 import {ProductPage} from '../models/ProductPage.model';
 import {Product} from '../models/Product.model';
@@ -22,7 +22,7 @@ export class ProductComponent implements OnInit {
   public ratingsNumber: number;
 
 
-  constructor(private activatedRoute: ActivatedRoute, private products: ProductsService) { }
+  constructor(private activatedRoute: ActivatedRoute, private products: ProductsService, private router: Router) { }
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(i => {
@@ -35,6 +35,10 @@ export class ProductComponent implements OnInit {
         this.ratingsNumber = this.celk / this.ratings.length;
       });
     });
+  }
+
+  addToCart(id: number){
+    this.router.navigate(['/cart'], {queryParams: {id}});
   }
 
 }

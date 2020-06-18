@@ -7,13 +7,15 @@ import {HttpClientModule} from '@angular/common/http';
 import { CategoryComponent } from './category/category.component';
 import { ProductComponent } from './product/product.component';
 import {NgxPaginationModule} from "ngx-pagination";
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CategoryComponent,
-    ProductComponent
+    ProductComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
