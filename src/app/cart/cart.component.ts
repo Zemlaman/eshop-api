@@ -19,16 +19,17 @@ export class CartComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(i => {
       this.products.getProduct(i.id).subscribe((data: Product) => {
         this.ProductArray.push(data);
-        localStorage.setItem('produkt', JSON.stringify(this.ProductArray));
-        const jsonProduct = localStorage.getItem('produkt');
-        this.ProductArray = JSON.parse(jsonProduct);
+        console.log(this.ProductArray);
+        localStorage.setItem('product', JSON.stringify(this.ProductArray));
+        const jsonProduct = localStorage.getItem('product');
+        this.ProductArray = JSON.parse(jsonProduct);      
 
       });
     });
-    const jsonProduct2 = localStorage.getItem('produkt');
+    const jsonProduct2 = localStorage.getItem('product');
     this.ProductArray = JSON.parse(jsonProduct2);
-    const finalPrice = this.ProductArray.map(ahoj => ahoj.price).reduce((a,b) => a + b,0);
-    this.cena = finalPrice;
+    const result = this.ProductArray.map(data => data.price).reduce((a, b) => a + b, 0);
+    this.cena = result;
   }
 
   getProduct(id: number) {
@@ -36,7 +37,10 @@ export class CartComponent implements OnInit {
   }
 
   removeCart() {
-    this.ProductArray = undefined;
+    this.ProductArray = [];
+    this.cena = 0;
+    //localStorage.clear();
   }
+
 
 }
